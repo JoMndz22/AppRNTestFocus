@@ -32,7 +32,7 @@ const HomeScreen = (props) => {
     }
 
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <ScrollView style={{ flex: 1, backgroundColor: '#ffffff' }}>
             <View style={styles.container}>
 
                 <TextInput
@@ -43,7 +43,7 @@ const HomeScreen = (props) => {
                     onSubmitEditing={() => sendMovie(search)}
                 />
                 <TouchableOpacity style={styles.button} onPress={() => sendMovie(search)}>
-                    <P fSize={16} aling="center">Buscar</P>
+                    <P txtColor={"#ffffff"} fSize={16} aling="center">Buscar</P>
                 </TouchableOpacity>
 
 
