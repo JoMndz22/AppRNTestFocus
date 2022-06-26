@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Text, View, Button, TextInput, StyleSheet } from 'react-native';
+import { Text, View, Button, TextInput, StyleSheet, Image } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay/lib';
 
 import { AuthContext } from '../context/AuthContext';
+import P from '../organisms/P';
 
 const LoginScreen = (navigation) => {
 
@@ -15,6 +16,11 @@ const LoginScreen = (navigation) => {
     return (
         <View style={styles.container}>
             <View style={styles.wrapper}>
+
+                <View style={styles.nameapp}>
+                    <Image source={require('../assets/images/movie.png')} style={{ width: 140, height: 140 }} />
+                </View>
+
                 <TextInput
                     style={styles.input}
                     value={email}
@@ -58,6 +64,10 @@ const styles = StyleSheet.create({
     link: {
         color: 'blue',
     },
+    nameapp: {
+        alignItems: 'center',
+        marginBottom: 30
+    }
 });
 
 export default LoginScreen;
