@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\vmrey\\OneDrive\\Escritorio\\Josue\\eduk\\AppRNTestFocus\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar\\values-ar.xml",
+            "outputFile": "C:\\Users\\vmrey\\OneDrive\\Escritorio\\Josue\\eduk\\FocusTest\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar\\values-ar.xml",
             "map": [
                 {
                     "source": "C:\\Users\\vmrey\\.gradle\\caches\\transforms-3\\f382564408e8806e991bcb7c984abfd6\\transformed\\core-1.5.0\\res\\values-ar\\values-ar.xml",

@@ -1,7 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { URL } from '../config';
+import { API_KEY, URL } from '../config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { GET } from '../services/API';
 
 
 export const AuthContext = createContext();
@@ -11,7 +12,25 @@ export const AuthProvider = ({ children }) => {
 
     const [userInfo, setUserInfo] = useState({});
     const [loading, setLoading] = useState(false);
+    const [categories, setCategories] = useState([]);
 
+    useEffect(() => {
+        const getCategories = async () => {
+            let data = await GET(`/genre/movie/list`);
+            setCategories(data.genres);
+        }
+        getCategories();
+    }, []);
+
+    const getNameCatg = (id) => {
+        let name = '';
+        categories.map((item) => {
+            if (item.id == id) {
+                name = item.name;
+            }
+        });
+        return name;
+    }
 
     const loginFunction = (email, password) => {
 
@@ -72,7 +91,9 @@ export const AuthProvider = ({ children }) => {
             userInfo,
             loginFunction,
             logout,
-            isLogged
+            isLogged,
+            getNameCatg,
+            categories
         }}>
             {children}
         </AuthContext.Provider>

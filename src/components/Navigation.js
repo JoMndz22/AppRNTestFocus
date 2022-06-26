@@ -6,6 +6,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 
 import { AuthContext } from '../context/AuthContext';
+import MovieDetails from '../screens/MovieDetails';
+import SearchScreen from '../screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,15 +22,25 @@ const Navigation = (props) => {
                 {
                     userInfo.token
                         ?
+                        <>
+                            <Stack.Screen
+                                name="Home"
+                                component={HomeScreen}
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="MovieDetails"
+                                component={MovieDetails}
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="SearchScreen"
+                                component={SearchScreen}
+                                options={{ headerShown: false }}
+                            />
 
-                        <Stack.Screen
-                            name="Home"
-                            component={HomeScreen}
-                            options={{ headerShown: false }}
-                        />
-
+                        </>
                         :
-
                         <Stack.Screen
                             name="Login"
                             component={LoginScreen}
@@ -36,8 +48,6 @@ const Navigation = (props) => {
                         />
 
                 }
-
-
             </Stack.Navigator>
         </NavigationContainer>
     )
