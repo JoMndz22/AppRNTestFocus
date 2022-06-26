@@ -42,14 +42,18 @@ export const AuthProvider = ({ children }) => {
         }).then(response => {
 
             let userInfo = response.data;
-            setUserInfo({ email, password, 'token': userInfo });
+            setUserInfo({ email, password, 'token': userInfo.token });
+
             AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
 
             setLoading(false);
+            console.log(response.data.token);
+
 
         }).catch(e => {
             console.log('Error login:::: ' + e);
             setLoading(false);
+
         });
 
     }

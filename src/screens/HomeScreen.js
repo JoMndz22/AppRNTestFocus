@@ -32,7 +32,7 @@ const HomeScreen = (props) => {
     }
 
     return (
-        <ScrollView>
+        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
             <View style={styles.container}>
 
                 <TextInput

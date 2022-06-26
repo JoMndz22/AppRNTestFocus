@@ -19,39 +19,40 @@ const SearchScreen = (props) => {
         const data = async () => {
             const response = await GET(`/search/movie?api_key=${API_KEY}&query=${movie}`, true);
             setMovies(response.results);
-
         }
 
         data();
-
-
     }, []);
 
 
     return (
-        <ScrollView>
+        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
             <View style={styles.container}>
                 <View style={styles.theme}>
-                    <P txtColor={'#7d7d7d'} fSize={20}>Results for: '{movie}'</P>
+                    <P txtColor={'#7d7d7d'} fSize={20}>Results for: '{movie}' ({movies.length})</P>
                 </View>
 
                 {
-                    movies.map((data, index) => {
+                    (movies.length > 0)
+                        ?
+                        movies.map((data, index) => {
 
-                        return (
-                            <CardMovie
-                                key={index}
-                                id={data.id}
-                                navigation={navigation}
-                                image={data.backdrop_path}
-                                title={data.original_title}
-                                category={data.genre_ids}
-                                date={data.release_date}
-                                ranking={data.popularity}
-                                description={data.overview}
-                            />
-                        )
-                    })
+                            return (
+                                <CardMovie
+                                    key={index}
+                                    id={data.id}
+                                    navigation={navigation}
+                                    image={data.backdrop_path}
+                                    title={data.original_title}
+                                    category={data.genre_ids}
+                                    date={data.release_date}
+                                    ranking={data.popularity}
+                                    description={data.overview}
+                                />
+                            )
+                        })
+                        :
+                        <P txtColor={'#7d7d7d'} fSize={20}> ** Not found **</P>
                 }
             </View>
         </ScrollView>

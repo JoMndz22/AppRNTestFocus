@@ -48,7 +48,7 @@ const MovieDetails = (props) => {
 
 
     return (
-        <ScrollView style={{ backgroundColor: '#ffffff' }}>
+        <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
 
             <View style={{ backgroundColor: '#000' }}>
                 <Image style={styles.imageStyle} source={{ uri: img }} />
@@ -85,24 +85,28 @@ const MovieDetails = (props) => {
                 </View>
 
                 <View style={styles.similar}>
-                    <P fSize={22}>Similar Movies:</P>
-
+                    <View style={{ marginBottom: 30 }}>
+                        <P fSize={22}>Similar Movies:</P>
+                    </View>
                     {
-                        similarMovies.map((data, index) => {
-                            return (
-                                <CardMovie
-                                    key={index}
-                                    id={data.id}
-                                    navigation={navigation}
-                                    image={data.backdrop_path}
-                                    title={data.original_title}
-                                    category={data.genre_ids}
-                                    date={data.release_date}
-                                    ranking={data.popularity}
-                                    description={data.overview}
-                                />
-                            )
-                        })
+                        (similarMovies.length > 0) ?
+                            similarMovies.map((data, index) => {
+                                return (
+                                    <CardMovie
+                                        key={index}
+                                        id={data.id}
+                                        navigation={navigation}
+                                        image={data.backdrop_path}
+                                        title={data.original_title}
+                                        category={data.genre_ids}
+                                        date={data.release_date}
+                                        ranking={data.popularity}
+                                        description={data.overview}
+                                    />
+                                )
+                            })
+                            :
+                            <P fSize={22}> ** Not found **</P>
                     }
 
                 </View>
