@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from '../screens/LoginScreen';
+import HomeScreen from '../screens/Home/HomeScreen';
+import LoginScreen from '../screens/Login/LoginScreen';
 
 import { AuthContext } from '../context/AuthContext';
-import MovieDetails from '../screens/MovieDetails';
-import SearchScreen from '../screens/SearchScreen';
+import MovieDetails from '../screens/Movie/MovieDetails';
+import SearchScreen from '../screens/Search/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 

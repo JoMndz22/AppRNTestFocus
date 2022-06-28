@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { IMG_POST_URL } from '../config';
 import { AuthContext } from '../context/AuthContext';
-import P from './P';
+import P from '../atoms/P';
 
 const CardMovie = (props) => {
 
